@@ -42,7 +42,7 @@ namespace PRG281Assignment
             Console.Clear();
             Console.WriteLine("= ADD NEW PATIENT =");
             Console.Write("Patient ID: ");
-            string id = Console.ReadLine();
+            string id = Console.ReadLine() ?? "";
             if (string.IsNullOrWhiteSpace(id))
             {
                 Console.WriteLine("Invalid Patient ID.");
@@ -59,7 +59,7 @@ namespace PRG281Assignment
             }
 
             Console.Write("Patient Name: ");
-            string name = Console.ReadLine();
+            string name = Console.ReadLine() ?? "";
             if (string.IsNullOrWhiteSpace(name))
             {
                 Console.WriteLine("Invalid Patient Name.");
@@ -79,7 +79,7 @@ namespace PRG281Assignment
             Console.WriteLine("= DELETE PATIENT =");
             ViewPatients();
             Console.Write("\nEnter patient ID to delete: ");
-            string id = Console.ReadLine();
+            string id = Console.ReadLine() ?? "";
 
             // Find patient by ID
             var patient = patients.Find(p => p.Id == id);
@@ -101,7 +101,7 @@ namespace PRG281Assignment
             Console.WriteLine("= EDIT PATIENT =");
             ViewPatients();
             Console.WriteLine("\n Enter patient ID to edit: ");
-            string id = Console.ReadLine();
+            string id = Console.ReadLine() ?? "";
 
             var patient = patients.Find(p => p.Id == id);
             if (patient == null)
@@ -112,7 +112,7 @@ namespace PRG281Assignment
             }
 
             Console.WriteLine("New Patient Name:");
-            string newName = Console.ReadLine();
+            string newName = Console.ReadLine() ?? "";
             if (string.IsNullOrWhiteSpace(newName))
             {
                 Console.WriteLine("Invalid Patient Name");
