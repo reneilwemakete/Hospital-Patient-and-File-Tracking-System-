@@ -1,0 +1,16 @@
+name: Build and regression checks
+on:
+  push:
+  pull_request:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - name: Build
+        run: dotnet build PRG281Assignment.csproj --configuration Release
+      - name: Account regression checks
+        run: dotnet run --project tests/Hospital.Tests.csproj --configuration Release
